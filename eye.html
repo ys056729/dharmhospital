@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharm Hospital | Eye Treatments</title>
+    <!-- Tailwind CSS CDN -->
+     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medicalBlue: '#0F6CBD',
+                        medicalGreen: '#2DBE60',
+                    },
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Open Sans', sans-serif; }
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        
+        /* Custom Animation Styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <!-- Header / Navigation -->
+    <header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">D</div>
+                <div>
+                    <h1 class="font-bold text-slate-900 leading-tight">Dharm Skin & Eye</h1>
+                    <p class="text-[10px] uppercase tracking-wider text-teal-600 font-bold">Premium Clinic • Mathura</p>
+                </div>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 font-medium text-slate-700">
+                <a href="index.html" class="hover:text-teal-600 transition-colors">Home</a>
+                <a href="index.html" class="hover:text-teal-600 transition-colors">Services</a>
+                <a href="facilities.html" class="hover:text-teal-600 transition-colors">Facilities</a>
+                <a href="index.html" class="hover:text-teal-600 transition-colors">Doctors</a>
+                <a href="index.html" class="hover:text-teal-600 transition-colors">Contact</a>
+                <a href="index.html" class="bg-teal-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-teal-700 transition-all shadow-md">Book Appointment</a>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-toggle" class="lg:hidden text-slate-800 focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t py-6 px-6 flex flex-col gap-4 animate-in slide-in-from-top">
+            <a href="index.html" class="text-lg font-semibold py-2 border-b border-slate-50">Home</a>
+            <a href="index.html" class="text-lg font-semibold py-2 border-b border-slate-50">Services</a>
+            <a href="facilities.html" class="hover:text-teal-600 transition-colors">Facilities</a>
+            <a href="index.html" class="text-lg font-semibold py-2 border-b border-slate-50">Doctors</a>
+            <a href="index.html" class="text-lg font-semibold py-2">Contact</a>
+            <a href="tel:8881603338" class="bg-teal-600 text-white text-center py-4 rounded-xl font-bold mt-2">Call Now: 8881603338</a>
+        </div>
+    </header>
+
+    <!-- EYE TREATMENTS PAGE -->
+    <section id="eye" class="page-section py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header Text -->
+            <div class="mb-12 reveal">
+                <h2 class="text-4xl font-bold text-medicalBlue mb-4 font-heading">Advanced Eye Care</h2>
+                <p class="text-slate-600 max-w-2xl text-lg">
+                    From Phaco cataract surgery to LASIK, we use premium technology for crystal clear vision and healthy eyes.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service Card 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group reveal">
+                    <div class="w-14 h-14 bg-blue-50 text-medicalBlue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-medicalBlue group-hover:text-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-heading text-slate-800 tracking-tight">Cataract (PHACO)</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Advanced micro-incision surgery with premium foldable & multifocal lens implants for rapid recovery.
+                    </p>
+                    <div class="text-xs font-bold text-medicalGreen uppercase flex items-center gap-1.5 bg-green-50 w-max px-3 py-1 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        Stitchless & Painless
+                    </div>
+                    <br/>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Phacoemulsification ("phaco") is the gold-standard, minimally invasive cataract surgery using ultrasonic energy to emulsify and remove a cloudy lens through a tiny 2–3 mm incision.</p>
+                    <ul class="text-slate-600 text-sm mb-6 leading-relaxed"><h2><b>Key Aspects of Phaco Surgery:</b></h2><br/>
+                            <li><b>Procedure:</b> A small incision is made, and the surgeon uses a phaco probe to break down the cataract with ultrasound and aspirate the pieces.</li><br/>
+                            <li><b>Techniques:</b> Common techniques include phaco chop (holding the nucleus with high vacuum to divide it) and four-quadrant splitting.</li><br/>
+                            <li><b>Limitations:</b>  May not be suitable for extremely advanced/hard cataracts or patients with severe weak zonules.</li><br/>
+                            <li><b>Advantages:</b> Lower complication rates, astigmatism management, and faster visual rehabilitation.</li><br/>
+                            <li><b>Recovery:</b> Most patients resume normal activities in 2-3 days, with complete healing over 4–6 weeks.</li><br/>
+                        </ul>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group reveal">
+                    <div class="w-14 h-14 bg-blue-50 text-medicalBlue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-medicalBlue group-hover:text-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-heading text-slate-800 tracking-tight">LASIK Laser</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Say goodbye to glasses forever with world-class laser vision correction technology and precision.
+                    </p>
+                    <div class="text-xs font-bold text-medicalGreen uppercase flex items-center gap-1.5 bg-green-50 w-max px-3 py-1 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        Sharp Vision
+                    </div>
+                    <br/>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">LASIK (Laser-Assisted in Situ Keratomileusis) is a popular, 10–15 minute painless surgery that uses lasers to reshape the cornea to correct myopia (nearsightedness), hyperopia (farsightedness), and astigmatism.<br/>
+                        <ul class="text-slate-600 text-sm mb-6 leading-relaxed"><h2><b>Key Details About LASIK Laser Surgery:</b></h2><br/>
+                            <li><b>Procedure:</b> A, microkeratome or femtosecond laser creates a thin flap on the cornea. A computer-controlled excimer laser then reshapes the cornea to improve focusing, typically lasting less than 60 seconds.</li><br/>
+                            <li><b>Benefits:</b> Over 99% of patients achieve 20/40 vision or better, with many achieving 20/20 or better. It offers fast recovery, with significant vision improvement within 24 hours.</li><br/>
+                            <li><b>Risks & Side Effects:</b> Temporary side effects include dry eyes, glare, halos, and light sensitivity. Rare complications can occur.</li><br/>
+                            <li><b>Recovery:</b> Initial recovery takes about 24 hours, with full stabilization usually within 3-6 months.</li><br/>
+                        </ul>
+
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group reveal">
+                    <div class="w-14 h-14 bg-blue-50 text-medicalBlue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-medicalBlue group-hover:text-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-heading text-slate-800 tracking-tight">Retina & Glaucoma</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Comprehensive diagnosis and advanced management for retinal diseases and intraocular pressure.
+                    </p>
+                    <div class="text-xs font-bold text-medicalGreen uppercase flex items-center gap-1.5 bg-green-50 w-max px-3 py-1 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        Expert Care
+                    </div>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">What is glaucoma? by Dr. Arpita Gupta – WebvisionGlaucoma and retinal diseases often intersect, as both affect the optic nerve and retinal ganglion cells at the back of the eye, leading to potential irreversible vision loss.</p>
+                    <ul class="text-slate-600 text-sm mb-6 leading-relaxed"><h2><b>Key Connections Between Retina & Glaucoma:</b></h2><br/>
+                        <li><b>Retinal Nerve Fiber Layer (RNFL) Thinning:</b> Glaucoma is characterized by the progressive degeneration of retinal ganglion cells, resulting in a measurable thinning of the RNFL.</li><br/>
+                        <li><b>Vascular Issues:</b> Reduced blood flow to the retina (vascular dysregulation) is a key factor in the development of glaucoma, particularly in normal-tension glaucoma where pressure is not high.</li><br/>
+                        <li><b>Concurrent Conditions:</b> Retinal diseases like diabetic retinopathy can coexist with glaucoma, making management complex and increasing the risk of blindness.</li><br/>
+                        <li><b>Imaging & Diagnosis:</b> Optical Coherence Tomography (OCT) is crucial to assess both retinal health and nerve fiber layer thickness, providing detailed structural information for diagnosis.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Scroll Reveal Animation -->
+    <script>
+        function reveal() {
+            const reveals = document.querySelectorAll(".reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+
+        // Initial check on page load
+        document.addEventListener("DOMContentLoaded", reveal);
+    </script>
+    <main class="max-w-6xl mx-auto px-4 py-16">
+        <div class="mt-20 bg-slate-900 rounded-[3rem] p-10 md:p-16 text-white flex flex-col md:flex-row items-center justify-between gap-10">
+            <div class="max-w-md">
+                <h4 class="text-3xl font-bold font-heading mb-4 leading-tight">Ready for a <span class="text-medicalGreen">Eye Health Guide?</span></h4>
+                <p class="text-slate-400">Consult with Dr. Arpita Gupta for a customized medical treatment plan.</p>
+            </div>
+            <div class="flex flex-col gap-4 w-full md:w-auto">
+                <a href="tel:8881603338" class="bg-medicalGreen text-slate-900 font-bold px-10 py-5 rounded-2xl text-center hover:bg-green-400 transition-all">Call Now: 8881603338</a>
+                <p class="text-xs text-center text-slate-500 uppercase tracking-widest font-bold">Govardhan Chauraha, Mathura</p>
+            </div>
+        </div>
+        </main>
+    <!-- Floating Actions -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-50">
+        <a href="https://wa.me/918881603338" target="_blank" class="floating-whatsapp bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-3xl hover:scale-110 transition-transform">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:8881603338" class="bg-teal-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl text-xl hover:scale-110 transition-transform">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>   
+</body>
+</html>

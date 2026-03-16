@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetic & Aesthetic Care | Dharm Skin & Eye Centre</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medicalBlue: '#0F6CBD',
+                        medicalGreen: '#2DBE60',
+                        aestheticGold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Open Sans', sans-serif; }
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        .cosmetic-hero {
+            background: radial-gradient(circle at top right, #fdfcfb 0%, #e2d1c3 100%);
+        }
+        .luxury-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .gold-glow:hover {
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- Header / Navigation -->
+    <header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">D</div>
+                <div>
+                    <h1 class="font-bold text-slate-900 leading-tight">Dharm Skin & Eye</h1>
+                    <p class="text-[10px] uppercase tracking-wider text-teal-600 font-bold">Premium Clinic • Mathura</p>
+                </div>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 font-medium text-slate-700">
+                <a href="index.html" class="hover:text-teal-600 transition-colors">Home</a>
+                <a href="index.html" class="hover:text-teal-600 transition-colors">Services</a>
+                <a href="facilities.html" class="hover:text-teal-600 transition-colors">Facilities</a>
+                <a href="index.html" class="hover:text-teal-600 transition-colors">Doctors</a>
+                <a href="index.html" class="hover:text-teal-600 transition-colors">Contact</a>
+                <a href="index.html" class="bg-teal-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-teal-700 transition-all shadow-md">Book Appointment</a>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-toggle" class="lg:hidden text-slate-800 focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t py-6 px-6 flex flex-col gap-4 animate-in slide-in-from-top">
+            <a href="index.html" class="text-lg font-semibold py-2 border-b border-slate-50">Home</a>
+            <a href="index.html" class="text-lg font-semibold py-2 border-b border-slate-50">Services</a>
+            <a href="facilities.html" class="hover:text-teal-600 transition-colors">Facilities</a>
+            <a href="index.html" class="text-lg font-semibold py-2 border-b border-slate-50">Doctors</a>
+            <a href="index.html" class="text-lg font-semibold py-2">Contact</a>
+            <a href="tel:8881603338" class="bg-teal-600 text-white text-center py-4 rounded-xl font-bold mt-2">Call Now: 8881603338</a>
+        </div>
+    </header>
+    <!-- Aesthetic Hero -->
+    <section class="cosmetic-hero pt-28 pb-20 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-aestheticGold font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Elegance Meets Science</span>
+            <h1 class="text-4xl md:text-6xl font-bold font-heading text-slate-900 mb-6 leading-tight">
+                Reveal Your Natural <br><span class="text-medicalBlue">Radiance</span>
+            </h1>
+            <p class="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
+                Discover professional medical-grade aesthetic treatments designed to rejuvenate, refine, and restore your skin’s youthful glow.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-16">
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- Medical Hydrafacial -->
+            <div class="luxury-card p-10 rounded-[3rem] gold-glow transition-all duration-500 flex flex-col items-center text-center">
+                <div class="w-20 h-20 bg-blue-100 text-medicalBlue rounded-full flex items-center justify-center mb-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.183.244l-.28.19a2 2 0 00-.596.892L2.222 21.4a2 2 0 00.303 2.052c.264.305.65.485 1.055.485h16.84c.405 0 .791-.18 1.055-.485a2.001 2.001 0 00.303-2.052l-1.769-5.063a2 2 0 00-.596-.892l-.28-.19z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold font-heading mb-4">Medical Hydrafacial</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    A multi-step medical procedure that uses patented technology to cleanse, extract, and hydrate. It infuses highly concentrated serums into the skin for an instant, long-lasting glow.
+                </p>
+                <div class="mt-auto pt-6 border-t border-slate-100 w-full">
+                    <p class="text-[10px] font-bold text-aestheticGold uppercase tracking-widest">Hydration • Glow • Detox</p>
+                </div>
+            </div>
+
+            <!-- Chemical Peeling -->
+            <div class="luxury-card p-10 rounded-[3rem] gold-glow transition-all duration-500 flex flex-col items-center text-center shadow-sm">
+                <div class="w-20 h-20 bg-green-100 text-medicalGreen rounded-full flex items-center justify-center mb-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold font-heading mb-4">Chemical Peeling</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    Professional skin resurfacing using medical-grade Alpha & Beta Hydroxy acids. Effectively treats active acne, stubborn pigmentation, and fine lines by revealing healthy new skin.
+                </p>
+                <div class="mt-auto pt-6 border-t border-slate-100 w-full">
+                    <p class="text-[10px] font-bold text-aestheticGold uppercase tracking-widest">Resurfacing • Anti-Aging • Clarity</p>
+                </div>
+            </div>
+
+            <!-- Tattoo Removal -->
+            <div class="luxury-card p-10 rounded-[3rem] gold-glow transition-all duration-500 flex flex-col items-center text-center">
+                <div class="w-20 h-20 bg-slate-100 text-slate-800 rounded-full flex items-center justify-center mb-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 11-4.243 4.243 3 3 0 014.243-4.243zm0-5.758a3 3 0 11-4.243-4.243 3 3 0 014.243-4.243z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold font-heading mb-4">Tattoo Removal</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    Utilizing high-intensity Q-Switched laser technology to shatter ink particles safely. Our process ensures maximum clearance with minimal impact on surrounding skin tissue.
+                </p>
+                <div class="mt-auto pt-6 border-t border-slate-100 w-full">
+                    <p class="text-[10px] font-bold text-aestheticGold uppercase tracking-widest">Safe Laser • Scar-Free • Effective</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Appointment Callout -->                
+                <div class="mt-20 bg-slate-900 rounded-[3rem] p-10 md:p-16 text-white flex flex-col md:flex-row items-center justify-between gap-10">
+            <div class="max-w-md">
+                <h4 class="text-3xl font-bold font-heading mb-4 leading-tight">Ready for a <span class="text-medicalGreen">Cosmetic & Aesthetic Dermatology?</span></h4>
+                <p class="text-slate-400">Consult with Dr. Chandan Singh Kushwah for a customized medical treatment plan.</p>
+            </div>
+            <div class="flex flex-col gap-4 w-full md:w-auto">
+                <a href="tel:8881603338" class="bg-medicalGreen text-slate-900 font-bold px-10 py-5 rounded-2xl text-center hover:bg-green-400 transition-all">Call Now: 8881603338</a>
+                <p class="text-xs text-center text-slate-500 uppercase tracking-widest font-bold">Govardhan Chauraha, Mathura</p>
+            </div>
+        </div>
+            </div>
+        </div>
+    </main>
+    <!-- Floating Actions -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-50">
+        <a href="https://wa.me/918881603338" target="_blank" class="floating-whatsapp bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-3xl hover:scale-110 transition-transform">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:8881603338" class="bg-teal-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl text-xl hover:scale-110 transition-transform">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+</body>
+</html>
