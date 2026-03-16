@@ -3,56 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dharm Skin, Hair & Aesthetik Clinic | Best Dermatologist in Mathura</title>
+    <title>Dharm Skin & Eye Center | Best Eye Hospital in Mathura</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        .hero-gradient {
-            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #f0f9ff 100%);
-        }
-
-        .service-card:hover .icon-box {
-            background-color: #0d9488;
-            color: white;
-            transform: rotate(-5deg);
-        }
-
-        .doctor-card img {
-            transition: transform 0.5s ease;
-        }
-        .doctor-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .floating-whatsapp {
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Hide scrollbar but keep functionality */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-slate-50 text-slate-900">
-
     <!-- Header / Navigation -->
     <header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-4 flex justify-between items-center">
@@ -68,6 +24,7 @@
             <nav class="hidden lg:flex items-center gap-8 font-medium text-slate-700">
                 <a href="#home" class="hover:text-teal-600 transition-colors">Home</a>
                 <a href="#services" class="hover:text-teal-600 transition-colors">Services</a>
+                <a href="facilities.html" class="hover:text-teal-600 transition-colors">Facilities</a>
                 <a href="#doctors" class="hover:text-teal-600 transition-colors">Doctors</a>
                 <a href="#contact" class="hover:text-teal-600 transition-colors">Contact</a>
                 <a href="#contact" class="bg-teal-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-teal-700 transition-all shadow-md">Book Appointment</a>
@@ -83,6 +40,7 @@
         <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t py-6 px-6 flex flex-col gap-4 animate-in slide-in-from-top">
             <a href="#home" class="text-lg font-semibold py-2 border-b border-slate-50">Home</a>
             <a href="#services" class="text-lg font-semibold py-2 border-b border-slate-50">Services</a>
+            <a href="facilities.html" class="hover:text-teal-600 transition-colors">Facilities</a>
             <a href="#doctors" class="text-lg font-semibold py-2 border-b border-slate-50">Doctors</a>
             <a href="#contact" class="text-lg font-semibold py-2">Contact</a>
             <a href="tel:8881603338" class="bg-teal-600 text-white text-center py-4 rounded-xl font-bold mt-2">Call Now: 8881603338</a>
@@ -96,13 +54,13 @@
             <div class="lg:w-1/2 text-center lg:text-left">
                 <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm text-teal-700 font-bold text-sm mb-6 border border-teal-100">
                     <i class="fa-solid fa-star text-teal-500"></i>
-                    #1 Rated Skin & Hair Clinic in Krishna Nagar
+                    #1 Rated Eye & Skin Care in Mathura
                 </div>
                 <h2 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
-                    Advanced <span class="text-teal-600">Dermatology</span> & Aesthetic Care
+                    Advanced <span class="text-teal-600">Eye Center</span> & Aesthetic Care
                 </h2>
                 <p class="text-lg text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0">
-                    Precision treatments for Skin, Hair, and Eyes by Board-Certified Specialists. We combine medical expertise with modern aesthetic technology.
+                    Precision treatments for Eyes, Skin, and Hair by Board-Certified Specialists. We combine medical expertise with modern aesthetic technology.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                     <a href="#contact" class="bg-teal-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-teal-200 hover:bg-teal-700 transition-all text-center">Book Your Visit</a>
@@ -132,8 +90,10 @@
                             <i class="fa-solid fa-clock"></i>
                         </div>
                         <div>
-                            <p class="text-sm font-bold text-slate-800">Open Today</p>
+                            <p class="text-sm font-bold text-slate-800">Monday, Tuesday, Wednesday, Friday, Saturday</p>
                             <p class="text-xs text-slate-600">09:00 AM - 05:00 PM</p>
+                            <p class="text-sm font-bold text-slate-800">Sunday & Close Thursday</p>
+                            <p class="text-xs text-slate-600">09:00 AM - 03:00 PM</p>
                         </div>
                     </div>
                 </div>
@@ -154,14 +114,28 @@
             <!-- Service Filter Tabs -->
             <div class="flex flex-wrap justify-center gap-3 mb-16 no-scrollbar overflow-x-auto pb-4">
                 <button onclick="filterServices('all')" class="filter-btn active bg-teal-600 text-white px-8 py-3 rounded-full font-bold shadow-lg transition-all" data-category="all">All</button>
+                <button onclick="filterServices('eye')" class="filter-btn bg-slate-100 text-slate-600 px-8 py-3 rounded-full font-bold hover:bg-slate-200 transition-all" data-category="eye">Eye Care</button>
                 <button onclick="filterServices('skin')" class="filter-btn bg-slate-100 text-slate-600 px-8 py-3 rounded-full font-bold hover:bg-slate-200 transition-all" data-category="skin">Skin</button>
                 <button onclick="filterServices('hair')" class="filter-btn bg-slate-100 text-slate-600 px-8 py-3 rounded-full font-bold hover:bg-slate-200 transition-all" data-category="hair">Hair</button>
                 <button onclick="filterServices('aesthetic')" class="filter-btn bg-slate-100 text-slate-600 px-8 py-3 rounded-full font-bold hover:bg-slate-200 transition-all" data-category="aesthetic">Aesthetic</button>
-                <button onclick="filterServices('eye')" class="filter-btn bg-slate-100 text-slate-600 px-8 py-3 rounded-full font-bold hover:bg-slate-200 transition-all" data-category="eye">Eye Care</button>
+                
             </div>
 
             <!-- Services Grid -->
             <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Eye Card -->
+                <div class="service-card bg-white border border-slate-100 rounded-3xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300" data-cat="eye">
+                    <div class="icon-box w-16 h-16 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center mb-8 text-2xl transition-all duration-300">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Ophthalmology</h3>
+                    <ul class="text-slate-600 space-y-3 mb-8">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Cataract Surgery</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> LASIK Consultation</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Vision Checkup</li>
+                    </ul>
+                    <a href="eye.html" class="font-bold text-teal-600 flex items-center gap-2 group">View Details <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+                </div>
                 <!-- Skin Card -->
                 <div class="service-card bg-white border border-slate-100 rounded-3xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300" data-cat="skin">
                     <div class="icon-box w-16 h-16 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center mb-8 text-2xl transition-all duration-300">
@@ -173,7 +147,7 @@
                         <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Pigmentation Care</li>
                         <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Allergy Treatment</li>
                     </ul>
-                    <a href="#" class="font-bold text-teal-600 flex items-center gap-2 group">View Details <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+                    <a href="dermatology.html" class="font-bold text-teal-600 flex items-center gap-2 group">View Details <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
                 </div>
 
                 <!-- Hair Card -->
@@ -187,7 +161,7 @@
                         <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Laser Hair Removal</li>
                         <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> PRP Therapy</li>
                     </ul>
-                    <a href="#" class="font-bold text-teal-600 flex items-center gap-2 group">View Details <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+                    <a href="haircare.html" class="font-bold text-teal-600 flex items-center gap-2 group">View Details <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
                 </div>
 
                 <!-- Aesthetic Card -->
@@ -201,21 +175,7 @@
                         <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Chemical Peeling</li>
                         <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Tattoo Removal</li>
                     </ul>
-                    <a href="#" class="font-bold text-teal-600 flex items-center gap-2 group">View Details <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
-                </div>
-
-                <!-- Eye Card -->
-                <div class="service-card bg-white border border-slate-100 rounded-3xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300" data-cat="eye">
-                    <div class="icon-box w-16 h-16 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center mb-8 text-2xl transition-all duration-300">
-                        <i class="fa-solid fa-eye"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Ophthalmology</h3>
-                    <ul class="text-slate-600 space-y-3 mb-8">
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Cataract Surgery</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> LASIK Consultation</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Vision Checkup</li>
-                    </ul>
-                    <a href="#" class="font-bold text-teal-600 flex items-center gap-2 group">View Details <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
+                    <a href="cosmeticare.html" class="font-bold text-teal-600 flex items-center gap-2 group">View Details <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i></a>
                 </div>
             </div>
         </div>
@@ -239,6 +199,7 @@
                             <span class="text-teal-400 font-bold text-sm tracking-widest uppercase mb-2 block">Reg: 62739</span>
                             <h3 class="text-3xl font-bold text-white">Dr. Chandan Singh Kushwah</h3>
                             <p class="text-emerald-300 font-semibold mt-1">MBBS, MD (Skin & VD)</p>
+                            <p class="text-emerald-300 font-semibold mt-1">All skin and allergy diseases treated.</p>
                         </div>
                     </div>
                     <div class="p-8">
@@ -256,6 +217,7 @@
                             <span class="text-teal-400 font-bold text-sm tracking-widest uppercase mb-2 block">Reg: 62733</span>
                             <h3 class="text-3xl font-bold text-white">Dr. Arpita Gupta</h3>
                             <p class="text-emerald-300 font-semibold mt-1">MBBS, MS (Ophthalmology)</p>
+                            <p class="text-emerald-300 font-semibold mt-1">Eye Specialist & Phaco Surgeon</p>
                         </div>
                     </div>
                     <div class="p-8">
@@ -281,7 +243,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-xl mb-1">Clinic Address</h4>
-                                    <p class="text-slate-400 leading-relaxed">Near Bank of Baroda, Krishna Nagar,<br>Mathura, Uttar Pradesh – 281004</p>
+                                    <p class="text-slate-400 leading-relaxed">Near Mukund Marriage Home <br/> Delhi–Agra Road Govardhan Chauraha <br/>Mathura, Uttar Pradesh – 281004</p>
                                 </div>
                             </div>
                             <div class="flex gap-6">
@@ -299,7 +261,10 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-xl mb-1">Consultation Timing</h4>
-                                    <p class="text-slate-400">Mon-Sat: 09 AM - 05 PM<br>Sunday: 09 AM - 03 PM</p>
+                                    <p class="font-bold text-xl mb-2">Monday, Tuesday, Wednesday, Friday, Saturday</p>
+                                    <p class="text-slate-400">09:00 AM - 05:00 PM</p>
+                                    <p class="font-bold text-xl mb-2">Sunday & Close Thursday</p>
+                                    <p class="text-slate-400">09:00 AM - 03:00 PM</p>
                                 </div>
                             </div>
                         </div>
@@ -310,23 +275,16 @@
                         <form id="appointmentForm" class="space-y-5">
                             <div class="grid md:grid-cols-2 gap-5">
                                 <div>
+                                    <label class="text-xs font-bold text-slate-500 uppercase block mb-2">Appointment Date</label>
+                                    <input type="date" required class="w-full bg-slate-50 border-0 p-4 rounded-xl focus:ring-2 focus:ring-teal-500 transition-all outline-none" placeholder="Date">
+                                </div>
+                                <div>
                                     <label class="text-xs font-bold text-slate-500 uppercase block mb-2">Patient Name</label>
                                     <input type="text" required class="w-full bg-slate-50 border-0 p-4 rounded-xl focus:ring-2 focus:ring-teal-500 transition-all outline-none" placeholder="Enter name">
                                 </div>
                                 <div>
                                     <label class="text-xs font-bold text-slate-500 uppercase block mb-2">Mobile Number</label>
                                     <input type="tel" required class="w-full bg-slate-50 border-0 p-4 rounded-xl focus:ring-2 focus:ring-teal-500 transition-all outline-none" placeholder="10-digit number">
-                                </div>
-                                <div>
-                                    <label class="text-xs font-bold text-slate-500 uppercase block mb-2">Appointment Fees</label>
-                                    <select class="w-full bg-slate-50 border-0 p-4 rounded-xl focus:ring-2 focus:ring-teal-500 transition-all outline-none">
-                                    <option>₹300 Consultation Fees</option>
-                                    <option>₹500 Emergency Fees</option>
-                                </select>
-                                </div> 
-                                <div>
-                                    <label class="text-xs font-bold text-slate-500 uppercase block mb-2">Appointment Date</label>
-                                    <input type="date" required class="w-full bg-slate-50 border-0 p-4 rounded-xl focus:ring-2 focus:ring-teal-500 transition-all outline-none" placeholder="Date">
                                 </div>
                             </div>
                             <div>
@@ -482,7 +440,4 @@
     </script>
 
 </body>
-
 </html>
-
-
