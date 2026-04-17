@@ -1,5 +1,10 @@
 User-agent: *
-Disallow: /wp-admin/
-Allow: /wp-admin/admin-ajax.php
+Allow: /
 
+# Disallow admin or private areas (if any)
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /login
+
+# Sitemap location
 Sitemap: https://dharmhospital.vercel.app/sitemap_index.xml
