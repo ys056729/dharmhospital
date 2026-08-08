@@ -103,4 +103,29 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+#submitBtn {
+    position: relative;
+    min-width: 130px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#buttonAnimation {
+    display: none;
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    background: inherit;
+    border-radius: inherit;
+}
+
+#buttonAnimation iframe {
+    width: 45px;
+    height: 45px;
+    border: none;
+}
 </style>
