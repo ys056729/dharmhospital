@@ -219,13 +219,52 @@
         Dharm Skin & Eye Centre | Govardhan Chauraha, Delhi-Agra Highway, Mathura
     </footer>
     <!-- Floating Actions -->
-    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-50">
-        <a href="https://wa.me/918881603338" target="_blank" class="floating-whatsapp bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-3xl hover:scale-110 transition-transform">
+    <div class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 flex flex-col gap-3 sm:gap-4 z-50">
+        <a href="https://wa.me/918881603338" target="_blank" class="floating-whatsapp bg-[#25D366] text-white w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-2xl text-2xl sm:text-3xl hover:scale-110 transition-transform">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <a href="tel:8881603338" class="bg-teal-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl text-xl hover:scale-110 transition-transform">
+        <a href="tel:8881603338" class="bg-teal-600 text-white w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-xl text-lg sm:text-xl hover:scale-110 transition-transform">
             <i class="fa-solid fa-phone"></i>
         </a>
     </div>
+    <!-- Mobile Menu Toggle JS -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        if (menuToggle && mobileMenu && menuIcon) {
+            menuToggle.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.classList.replace('fa-bars', 'fa-xmark');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.replace('fa-xmark', 'fa-bars');
+                }
+            });
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.replace('fa-xmark', 'fa-bars');
+                });
+            });
+        }
+        // Header scroll effect
+        const header = document.getElementById('main-header');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('glass-nav');
+                    header.classList.remove('py-4');
+                    header.classList.add('py-2');
+                } else {
+                    header.classList.remove('glass-nav');
+                    header.classList.add('py-4');
+                    header.classList.remove('py-2');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
