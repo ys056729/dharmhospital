@@ -55,7 +55,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 hero-gradient overflow-hidden">
-        <div class="absolute top-20 right-[-10%] w-96 h-96 bg-teal-100 rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute top-20 right-[-10%] w-48 h-48 md:w-96 md:h-96 bg-teal-100 rounded-full blur-3xl opacity-50"></div>
         <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12 relative z-10">
             <div class="lg:w-1/2 text-center lg:text-left">
                 <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm text-teal-700 font-bold text-sm mb-6 border border-teal-100">
@@ -90,7 +90,7 @@
             </div>
             <div class="lg:w-1/2 relative">
                 <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
-                    <img src="Centre.jpg" alt="Clinic Interior" class="w-full h-[450px] object-cover">
+                    <img src="Centre.jpg" alt="Clinic Interior" class="w-full h-[250px] sm:h-[350px] md:h-[450px] object-cover">
                     <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-5 rounded-2xl shadow-lg flex items-center gap-4">
                         <div class="bg-emerald-500 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-inner">
                             <i class="fa-solid fa-clock"></i>
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="absolute -bottom-8 -right-8 w-40 h-40 bg-emerald-100 rounded-full z-0 opacity-50"></div>
+                <div class="absolute -bottom-8 -right-8 w-20 h-20 md:w-40 md:h-40 bg-emerald-100 rounded-full z-0 opacity-50"></div>
             </div>
         </div>
     </section>
@@ -220,7 +220,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                 <!-- Dr. Chandan -->
                 <div class="doctor-card bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-white group">
-                    <div class="h-[400px] overflow-hidden relative">
+                    <div class="h-[280px] md:h-[400px] overflow-hidden relative">
                         <img src="ChandanSinghKushwah.jpg" alt="Dr. Chandan" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-8">
@@ -238,7 +238,7 @@
 
                 <!-- Dr. Arpita -->
                 <div class="doctor-card bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-white group">
-                    <div class="h-[400px] overflow-hidden relative">
+                    <div class="h-[280px] md:h-[400px] overflow-hidden relative">
                         <img src="arpita-gupta.jpg" alt="Dr. Arpita" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-8">
@@ -297,7 +297,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-3xl p-8 md:p-10 text-slate-900 shadow-2xl">
+                    <div class="bg-white rounded-2xl md:rounded-3xl p-5 md:p-8 lg:p-10 text-slate-900 shadow-2xl">
                         <h3 class="text-2xl font-bold mb-6">Request an Appointment</h3>
                         <form id="appointmentForm" class="space-y-5">
                                 <div class="grid md:grid-cols-2 gap-5">
@@ -354,7 +354,7 @@
                     <div class="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">D</div>
                     <span class="text-xl font-bold text-slate-800">Dharm Skin & Eye Centre</span>
                 </div>
-                <div class="flex gap-8 font-semibold text-slate-500">
+                <div class="flex flex-wrap justify-center gap-3 sm:gap-5 md:gap-8 font-semibold text-slate-500">
                     <a href="#home" class="hover:text-teal-600">Home</a>
                     <a href="#services" class="hover:text-teal-600">Services</a>
                     <a href="facilities.html" class="hover:text-teal-600">Facilities</a>
@@ -375,11 +375,11 @@
     </footer>
 
     <!-- Floating Actions -->
-    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-50">
-        <a href="https://wa.me/918881603338" target="_blank" class="floating-whatsapp bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-3xl hover:scale-110 transition-transform">
+    <div class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 flex flex-col gap-3 sm:gap-4 z-50">
+        <a href="https://wa.me/918881603338" target="_blank" class="floating-whatsapp bg-[#25D366] text-white w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-2xl text-2xl sm:text-3xl hover:scale-110 transition-transform">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <a href="tel:8881603338" class="bg-teal-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl text-xl hover:scale-110 transition-transform">
+        <a href="tel:8881603338" class="bg-teal-600 text-white w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-xl text-lg sm:text-xl hover:scale-110 transition-transform">
             <i class="fa-solid fa-phone"></i>
         </a>
     </div>
