@@ -30,6 +30,9 @@
                 <a href="#doctors" class="hover:text-teal-600 transition-colors">Doctors</a>
                 <a href="#contact" class="hover:text-teal-600 transition-colors">Contact</a>
                 <a href="#contact" class="bg-teal-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-teal-700 transition-all shadow-md">Book Appointment</a>
+                <button onclick="openAdminModal()" class="text-slate-400 hover:text-teal-600 transition-colors flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100" title="Admin Login">
+                    <i class="fa-solid fa-user-shield"></i>
+                </button>
             </nav>
 
             <!-- Mobile Toggle -->
@@ -46,6 +49,7 @@
             <a href="#doctors" class="text-lg font-semibold py-2 border-b border-slate-50">Doctors</a>
             <a href="#contact" class="text-lg font-semibold py-2">Contact</a>
             <a href="tel:8881603338" class="bg-teal-600 text-white text-center py-4 rounded-xl font-bold mt-2">Call Now: 8881603338</a>
+            <button onclick="openAdminModal()" class="w-full bg-slate-100 text-slate-600 text-center py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors"><i class="fa-solid fa-user-shield mr-2"></i> Admin Access</button>
         </div>
     </header>
 
@@ -500,5 +504,58 @@ document.getElementById("submitBtn").addEventListener("click", function () {
 
 });
 </script>
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="hidden fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[100] items-center justify-center animate-in fade-in duration-200">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl relative">
+            <button onclick="closeAdminModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800">Admin Access</h3>
+                <p class="text-slate-500 mt-2 text-sm">Please enter the admin email to continue.</p>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <input type="email" id="adminEmailInput" placeholder="Enter admin email..." class="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl focus:ring-2 focus:ring-teal-500 transition-all outline-none">
+                </div>
+                <div id="adminError" class="hidden text-red-500 text-sm font-medium text-center bg-red-50 py-2 rounded-lg">Incorrect email address. Access denied.</div>
+                <button onclick="verifyAdminEmail()" class="w-full bg-slate-900 text-white font-bold py-4 rounded-xl hover:bg-slate-800 transition-colors shadow-lg">Access Admin Panel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openAdminModal() {
+            document.getElementById('adminModal').classList.remove('hidden');
+            document.getElementById('adminModal').classList.add('flex');
+            document.getElementById('adminEmailInput').value = '';
+            document.getElementById('adminError').classList.add('hidden');
+            setTimeout(() => document.getElementById('adminEmailInput').focus(), 100);
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+            document.getElementById('adminModal').classList.remove('flex');
+        }
+
+        function verifyAdminEmail() {
+            const email = document.getElementById('adminEmailInput').value.trim();
+            if (email === 'dharmhospital01@gmail.com') {
+                window.location.href = 'dharm_hospital_admin_panel.html';
+            } else {
+                document.getElementById('adminError').classList.remove('hidden');
+            }
+        }
+
+        // Allow pressing Enter key to submit
+        document.getElementById('adminEmailInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                verifyAdminEmail();
+            }
+        });
+    </script>
 </body>
 </html>

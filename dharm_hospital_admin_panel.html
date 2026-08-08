@@ -210,27 +210,8 @@
 </head>
 <body>
 
-<!-- LOGIN SCREEN -->
-<div class="login-wrap" id="loginScreen">
-  <div class="login-card">
-    <div class="login-logo">🏥 Dharm Hospital</div>
-    <div class="login-sub">Admin Panel — Reception System</div>
-    <div class="login-error" id="loginError">Invalid username or password.</div>
-    <div class="form-group" style="margin-bottom:14px">
-      <label>Username</label>
-      <input type="text" id="loginUser" placeholder="admin" />
-    </div>
-    <div class="form-group" style="margin-bottom:22px">
-      <label>Password</label>
-      <input type="password" id="loginPass" placeholder="••••••••" />
-    </div>
-    <button class="btn btn-primary" style="width:100%;justify-content:center;padding:11px" onclick="doLogin()">Sign In</button>
-    
-  </div>
-</div>
-
 <!-- MAIN APP -->
-<div id="appWrap" style="display:none;flex:1;min-height:100vh;width:100%;display:none;">
+<div id="appWrap" style="display:flex;flex:1;min-height:100vh;width:100%;">
   <!-- SIDEBAR -->
   <div class="sidebar">
     <div class="sidebar-logo">
@@ -259,7 +240,7 @@
     <div class="sidebar-footer">
       <div class="user">Dr. Admin</div>
       <div style="margin-top:3px">Reception Staff</div>
-      <button class="btn btn-secondary" style="margin-top:10px;font-size:12px;padding:6px 12px;width:100%;justify-content:center" onclick="doLogout()">Logout</button>
+      <button class="btn btn-secondary" style="margin-top:10px;font-size:12px;padding:6px 12px;width:100%;justify-content:center" onclick="window.location.href='index.html'">Back to Website</button>
     </div>
   </div>
 
@@ -326,6 +307,37 @@
           <div class="card-title">Recent Patients</div>
           <div id="recentTable"></div>
         </div>
+
+        <!-- NEW CARD FOR WEBSITE REQUESTS -->
+        <div class="card" style="margin-top:24px;">
+          <div class="card-title" style="display:flex; justify-content:space-between; align-items:center;">
+            <div>Online Appointment Requests <span class="card-title-sub">From Website (Google Sheets)</span></div>
+            <button class="btn btn-secondary" style="padding:4px 10px;font-size:12px;" onclick="loadWebsiteRequests()">↻ Refresh</button>
+          </div>
+          <div id="websiteRequestsLoading" style="padding:30px;text-align:center;color:var(--text-muted);">
+            <p>Loading requests from Google Sheets...</p>
+          </div>
+          <div id="websiteRequestsError" style="display:none;padding:30px;text-align:center;color:#c0392b;">
+            <p>Failed to load requests.</p>
+          </div>
+          <div id="websiteRequestsEmpty" style="display:none;padding:30px;text-align:center;color:var(--text-muted);">
+            <p>No online requests available.</p>
+          </div>
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;display:none;" id="websiteRequestsTable">
+              <thead>
+                <tr>
+                  <th style="text-align:left;padding:8px 12px;font-size:11.5px;color:var(--text-muted);text-transform:uppercase;border-bottom:1px solid var(--border)">Date</th>
+                  <th style="text-align:left;padding:8px 12px;font-size:11.5px;color:var(--text-muted);text-transform:uppercase;border-bottom:1px solid var(--border)">Patient Name</th>
+                  <th style="text-align:left;padding:8px 12px;font-size:11.5px;color:var(--text-muted);text-transform:uppercase;border-bottom:1px solid var(--border)">Service</th>
+                  <th style="text-align:left;padding:8px 12px;font-size:11.5px;color:var(--text-muted);text-transform:uppercase;border-bottom:1px solid var(--border)">Phone Number</th>
+                  <th style="text-align:left;padding:8px 12px;font-size:11.5px;color:var(--text-muted);text-transform:uppercase;border-bottom:1px solid var(--border)">Age</th>
+                </tr>
+              </thead>
+              <tbody id="websiteRequestsBody"></tbody>
+            </table>
+          </div>
+        </div>
       </div>
 
       <!-- PATIENTS -->
@@ -348,6 +360,7 @@
               <option value="Completed">Completed</option>
             </select>
             <button class="btn btn-secondary" onclick="exportCSV()">📤 Export</button>
+            <button class="btn btn-primary" id="syncBtn" onclick="syncGoogleSheets()" style="margin-left:8px">📥 Sync Web Requests</button>
           </div>
           <div style="overflow-x:auto">
             <table id="patientTable">
@@ -477,9 +490,39 @@
 <div class="toast" id="toast"></div>
 
 <script>
+// ---- CONFIG & HELPERS ----
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMO4Cv_ruYG_PfJebxemlVJRefYPKYy56SWy-zGzcsb4hyi4g8v7MJyj4UjnPyZ0IBlg/exec";
+
+function escapeHTML(str) {
+  if (str === null || str === undefined) return '';
+  return String(str).replace(/[&<>'"]/g, 
+    tag => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      "'": '&#39;',
+      '"': '&quot;'
+    }[tag] || tag)
+  );
+}
+
+function formatAppointmentDate(value) {
+  if (!value) return "-";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return escapeHTML(value);
+  }
+  return date.toLocaleString("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true
+  });
+}
+
 // ---- STATE ----
-
-
 let patients = JSON.parse(localStorage.getItem('dharm_patients') || '[]');
 let nextId = parseInt(localStorage.getItem('dharm_nextid') || '1');
 
@@ -496,30 +539,11 @@ function todayStr() {
   return new Date().toDateString();
 }
 
-// ---- LOGIN ----
+// ---- INITIALIZE ----
 document.getElementById('topDate').textContent = today();
-
-function doLogin() {
-  const u = document.getElementById('loginUser').value.trim();
-  const p = document.getElementById('loginPass').value.trim();
-  if (u === 'admin' && p === 'dharm2024') {
-    document.getElementById('loginScreen').style.display = 'none';
-    const app = document.getElementById('appWrap');
-    app.style.display = 'flex';
-    renderDashboard();
-  } else {
-    document.getElementById('loginError').style.display = 'block';
-  }
-}
-document.getElementById('loginPass').addEventListener('keydown', e => { if(e.key==='Enter') doLogin(); });
-document.getElementById('loginUser').addEventListener('keydown', e => { if(e.key==='Enter') doLogin(); });
-
-function doLogout() {
-  document.getElementById('appWrap').style.display = 'none';
-  document.getElementById('loginScreen').style.display = 'flex';
-  document.getElementById('loginUser').value = '';
-  document.getElementById('loginPass').value = '';
-}
+document.addEventListener('DOMContentLoaded', () => {
+  renderDashboard();
+});
 
 // ---- NAVIGATION ----
 function showPage(id, el) {
@@ -563,6 +587,63 @@ function sendWhatsApp(p) {
   const msg = encodeURIComponent(`Hello ${p.name}, Thank you for visiting Dharm Hospital. Your appointment for ${p.service} is confirmed. Consultation Fee: ₹${p.fees}. For any help call us.`);
   const url = `https://wa.me/91${p.mobile}?text=${msg}`;
   window.open(url, '_blank');
+}
+
+// ---- SYNC GOOGLE SHEETS ----
+async function syncGoogleSheets() {
+  const btn = document.getElementById('syncBtn');
+  if(!btn) return;
+  btn.textContent = 'Syncing...';
+  try {
+    const getURL = `${SCRIPT_URL}?action=appointments`;
+    const response = await fetch(getURL, { method: "GET" });
+    if (!response.ok) throw new Error("Network error");
+    const result = await response.json();
+    
+    if (!result.success) throw new Error(result.message || "Failed to load appointments");
+    const appointments = Array.isArray(result.data) ? result.data : [];
+    
+    let addedCount = 0;
+    const valid = appointments.filter(a => a.Name);
+    
+    valid.forEach(r => {
+      // Check if patient already exists (match by Name and Service)
+      const exists = patients.find(p => 
+        p.name.toLowerCase() === r.Name.toLowerCase() && 
+        p.service === r.Service
+      );
+      
+      if (!exists) {
+        const p = {
+          id: nextId++,
+          name: r.Name,
+          mobile: r.Number ? String(r.Number) : 'N/A',
+          age: r.Age || 0,
+          service: r.Service || 'Other',
+          fees: 300, // Default fee
+          doctor: 'Dr. Sharma', // Default doctor
+          date: today(),
+          dateObj: todayStr(),
+          status: 'Pending'
+        };
+        patients.unshift(p);
+        addedCount++;
+      }
+    });
+    
+    if (addedCount > 0) {
+      save();
+      showToast(`Synced ${addedCount} new web requests!`, 'success');
+      renderTable();
+      renderDashboard(); // Update dashboard counts
+    } else {
+      showToast('No new requests found.', 'info');
+    }
+  } catch (err) {
+    console.error("Error syncing:", err);
+    showToast('Failed to sync.', 'error');
+  }
+  btn.innerHTML = '📥 Sync Web Requests';
 }
 
 // ---- TABLE ----
@@ -689,6 +770,73 @@ function renderDashboard() {
   renderBarChart();
   renderDonut();
   renderRecentTable();
+  loadWebsiteRequests(); // Call API on dashboard load
+}
+
+// ---- WEBSITE REQUESTS (GOOGLE SHEETS) ----
+async function loadWebsiteRequests() {
+  const loading = document.getElementById("websiteRequestsLoading");
+  const error = document.getElementById("websiteRequestsError");
+  const empty = document.getElementById("websiteRequestsEmpty");
+  const table = document.getElementById("websiteRequestsTable");
+  const tbody = document.getElementById("websiteRequestsBody");
+
+  if(!loading) return;
+
+  loading.style.display = "block";
+  error.style.display = "none";
+  empty.style.display = "none";
+  table.style.display = "none";
+
+  try {
+    const getURL = `${SCRIPT_URL}?action=appointments`;
+    const response = await fetch(getURL, { method: "GET" });
+    
+    if (!response.ok) throw new Error("Network error");
+    const result = await response.json();
+
+    if (!result.success) throw new Error(result.message || "Failed to load appointments");
+    const appointments = Array.isArray(result.data) ? result.data : [];
+
+    loading.style.display = "none";
+
+    const valid = appointments.filter(a => a.Name);
+    if (valid.length === 0) {
+      empty.style.display = "block";
+      return;
+    }
+
+    table.style.display = "table";
+    
+    // Show all online requests in reverse chronological order
+    const recent = [...valid].reverse(); 
+    
+    tbody.innerHTML = recent.map(r => {
+      const dateStr = formatAppointmentDate(r.Date);
+      const nameStr = escapeHTML(r.Name || '-');
+      const serviceStr = escapeHTML(r.Service || '-');
+      const numberStr = escapeHTML(r.Number ? String(r.Number) : 'Private/N/A');
+      const ageStr = escapeHTML(r.Age ? String(r.Age) + ' yrs' : 'N/A');
+      
+      let badgeType = 'other';
+      if (r.Service && r.Service.includes('Eye')) badgeType = 'eye';
+      if (r.Service && r.Service.includes('Skin')) badgeType = 'skin';
+
+      return `<tr>
+        <td style="padding:10px 12px;font-size:12.5px">${dateStr}</td>
+        <td style="padding:10px 12px;font-weight:600">${nameStr}</td>
+        <td style="padding:10px 12px"><span class="badge badge-${badgeType}">${serviceStr}</span></td>
+        <td style="padding:10px 12px;font-size:12.5px;color:var(--text-muted)">
+          ${r.Number ? `<a href="tel:${numberStr}" style="color:inherit;text-decoration:none">${numberStr}</a>` : numberStr}
+        </td>
+        <td style="padding:10px 12px;font-size:12.5px">${ageStr}</td>
+      </tr>`;
+    }).join('');
+  } catch (err) {
+    console.error("Error loading website requests:", err);
+    loading.style.display = "none";
+    error.style.display = "block";
+  }
 }
 
 function renderBarChart() {
