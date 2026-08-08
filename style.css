@@ -103,8 +103,4 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
-/* Background blur overlay hidden by default */
-.hidden {
-  display: none !important;
-}
 </style>
