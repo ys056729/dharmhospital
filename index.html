@@ -339,7 +339,17 @@
                                     <option>Aesthetic Facial</option>
                                 </select>
                             </div>
-                            <button type="submit" class="w-full bg-teal-600 text-white font-bold py-5 rounded-2xl text-lg hover:bg-teal-700 transition-all shadow-xl shadow-teal-100" name="Submit">Confirm Appointment Request</button>
+                            <button id="submitBtn" type="submit">
+    <span id="buttonText">Submit</span>
+
+    <span id="buttonAnimation">
+        <iframe
+            src="https://lottie.host/embed/56b180c1-a6d4-43d8-9252-86a7379ae00b/B9NHFRlX5S.lottie"
+            frameborder="0"
+            allow="autoplay">
+        </iframe>
+    </span>
+</button>
                         </form>
                     </div>
                 </div>
@@ -495,6 +505,15 @@
         `;
         document.head.appendChild(style);
     </script>
+<script>
+document.getElementById("submitBtn").addEventListener("click", function () {
 
+    // Change Submit text to animation
+    document.getElementById("buttonText").style.display = "none";
+
+    document.getElementById("buttonAnimation").style.display = "flex";
+
+});
+</script>
 </body>
 </html>
